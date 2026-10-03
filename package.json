@@ -1,0 +1,17 @@
+{
+  "name": "rio-amazonas-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "vite preview --host 127.0.0.1",
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/model.test.mjs",
+    "doctor": "npm test && npm run build",
+    "qa": "node scripts/qa.mjs"
+  },
+  "dependencies": { "three": "0.183.2" },
+  "devDependencies": { "vite": "7.1.7" }
+}
