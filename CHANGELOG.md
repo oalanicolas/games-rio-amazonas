@@ -22,3 +22,4 @@
 - Apresentação escolar na raiz; laboratório preservado em `/laboratorio.html`.
 - Destino público geografia.rabisco.net, metadados de compartilhamento e favicon da família.
 - GTM somente no domínio público; respostas e registros permanecem no navegador.
+- Regras próprias da Hostinger: respostas 403 não entram em cache; configuração interna não integra os materiais offline.

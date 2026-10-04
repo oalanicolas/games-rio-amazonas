@@ -4,7 +4,7 @@ const root = new URL('../dist/', import.meta.url);
 async function list(path = '') {
   const entries = await readdir(new URL(path, root), { withFileTypes: true });
   const nested = await Promise.all(entries.map(e => e.isDirectory() ? list(`${path}${e.name}/`) : [`${path}${e.name}`]));
-  return nested.flat().filter(p => p !== 'sw.js').sort();
+  return nested.flat().filter(p => p !== 'sw.js' && !p.split('/').some(part => part.startsWith('.'))).sort();
 }
 const files = await list();
 const hash = createHash('sha256');

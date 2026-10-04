@@ -141,4 +141,8 @@ Entrada pública escolar, navegação ao laboratório, canonical e imagem 1200 �
 ganham verificações próprias no QA. Metadados e hashes públicos são conferidos
 após o deploy da revisão no GitHub, por `gameops deploy`.
 GTM mede somente acessos no domínio público; pacote localhost sem telemetria.
+Defeito nomeado: resposta 403 sem `Cache-Control: no-store` e `Vary: User-Agent`.
+Correção em `.htaccess` próprio: cabeçalhos de erro fora de `FilesMatch`, com
+condição de status. A configuração interna fica fora do cache offline. A regra
+é conferida pelo mesmo `gameops deploy`, sem alterar seus critérios.
 Não houve teste em dispositivo físico, turma real ou aceite artístico de Alan.
