@@ -1,7 +1,9 @@
 # Amazonas — um rio vivo
 
-Protótipo de um laboratório 3D da paisagem amazônica, com floresta de várzea,
-corrente animada, sedimentos, cheia/vazante e migração ilustrativa do canal.
+Material de apoio para aulas de Geografia de 6º e 7º anos: caderno de leitura,
+mapa oficial da ANA, fotografia NASA, duas investigações guiadas, cinco questões
+com explicação, ficha imprimível e plano de 50 minutos. Inclui o laboratório 3D
+da paisagem amazônica. Relação parcial com a BNCC, sem certificação curricular.
 
 ## Abrir
 
@@ -20,15 +22,37 @@ npm run doctor
 
 Os comandos npm são executados nesta pasta. Desenvolvimento: `npm run dev`.
 
+Na URL impressa, abra `/escola.html` para o caderno, `/ficha.html` para a ficha
+ou `/` para exploração livre. Sem WebGL, caderno e ficha continuam utilizáveis.
+
+## Uso em escola e distribuição
+
+O professor encontra objetivos, sequência, respostas esperadas, critérios de
+observação e complementações para EF06GE04, EF06GE09 e EF07GE11 no caderno.
+Registros guardam apenas configurações/índices no `sessionStorage` desta aba;
+respostas às perguntas ficam em memória. Sem contas, backend ou envio de dados.
+
+Em localhost ou HTTPS, espere “Materiais disponíveis sem internet” na seção do
+professor, desligue a rede e confira o mesmo endereço antes da aula. O cache pode
+ser apagado pelo navegador. Links externos exigem internet. Em HTTP de rede local,
+o service worker pode ser indisponível; use o pacote servido no próprio computador.
+
+`npm run pack` cria `output/rio-amazonas-escolas/amazonas-geografia-escolas.zip`
+no hub. Extraia inteiro e execute `python3 iniciar.py` (`py iniciar.py` no Windows).
+Precisa de Python 3; não precisa de npm, Node ou internet. O servidor abre apenas
+localhost, mantém os recursos locais e encerra com Ctrl+C. A ficha também pode ser
+impressa para uma aula sem equipamento. Publicação web não executada.
+
 ## Experimentar
 
-Mude corrente e sedimento, avance os anos e compare vazante e cheia. “Mapa” mostra
+Mude corrente e sedimento, avance as etapas e compare vazante e cheia. “Planta” mostra
 o canal de cima; “Corte” revela o solo. Arraste para girar, role para aproximar.
 “Recomeçar o experimento” restaura todos os controles. No celular, “Ajustar o rio”
 abre o painel. “Ambiente” liga uma gravação opcional de água, pássaros e sapos.
 
 Espaço pausa; V alterna vistas; R reinicia; N alterna legendas; setas voltam ou
-avançam 10 anos. Preferência de movimento reduzido inicia com o relógio parado.
+avançam 10 etapas. Etapas não representam anos reais. Preferência de movimento
+reduzido inicia e reinicia com o relógio parado. Investigações também iniciam pausadas.
 
 ## Verificar
 

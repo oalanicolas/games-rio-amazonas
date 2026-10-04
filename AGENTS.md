@@ -5,7 +5,9 @@ Não importar código, shaders, layout, textos ou assets proprietários do River
 O snapshot original fica em `swipe/river-bend`, fora deste módulo.
 
 - Direção: floresta de várzea, águas barrentas, diorama com solo exposto e controles didáticos.
-- Cânone: `game-design.md`. Escala jam; gênero simulation; superfície Aprender.
+- Cânone: `game-design.md`. Escala product; gênero simulation; superfície Aprender.
+- Escola: 6º e 7º anos; caderno, plano, ficha e investigação. BNCC parcial, sem certificação.
+- Nunca apresentar as 300 etapas como anos reais ou a planta como cartografia oficial.
 - `npm run doctor`: testes do modelo e build de produção.
 - Servir da raiz do hub: `python3 framework/scripts/game.py serve prototypes/rio-amazonas`.
 - `npm run qa`: Chrome headless, GPU Metal, sem roubar foco; usa o Playwright da bancada Metal Assault.

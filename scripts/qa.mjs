@@ -45,7 +45,7 @@ try {
   await check('todas as velocidades de tempo são selecionáveis', async () => { for (const speed of [2, 8, 24]) { await page.locator(`[data-speed="${speed}"]`).click(); assert.equal((await observe()).speed, speed); } });
   await check('legendas podem ser desligadas e religadas', async () => { await page.getByRole('button', { name: 'Legendas', exact: true }).click(); assert.equal((await observe()).labels, false); await page.waitForTimeout(250); assert.ok(await page.locator('.world-label').evaluateAll(elements => elements.every(e => getComputedStyle(e).opacity === '0'))); await page.getByRole('button', { name: 'Legendas', exact: true }).click(); assert.equal((await observe()).labels, true); });
   await check('áudio inicia apenas por ação e reproduz de fato', async () => { assert.equal((await observe()).audio.paused, true); await page.getByRole('button', { name: 'Ambiente', exact: true }).click(); await page.waitForTimeout(700); const info = await observe(); assert.equal(info.soundOn, true); assert.ok(!info.audio.paused && info.audio.currentTime > .2); await page.getByRole('button', { name: 'Ambiente', exact: true }).click(); assert.equal((await observe()).audio.paused, true); });
-  await check('mapa enquadra o canal de cima', async () => { await view('Mapa'); const info = await observe(); assert.equal(info.view, 'map'); assert.ok(Math.abs(info.camera[0]) < .1 && info.camera[1] > 260); await capture('desktop-map'); });
+  await check('planta enquadra o canal de cima', async () => { await view('Planta'); const info = await observe(); assert.equal(info.view, 'map'); assert.ok(Math.abs(info.camera[0]) < .1 && info.camera[1] > 260); await capture('desktop-map'); });
   await check('corte expõe as camadas do solo', async () => { await view('Corte'); assert.equal((await observe()).view, 'section'); await capture('desktop-section'); });
   await view('Diorama');
   await check('arrastar orbita e rolar aproxima', async () => { const before = (await observe()).camera; await page.mouse.move(870, 470); await page.mouse.down(); await page.mouse.move(1010, 485, { steps: 12 }); await page.mouse.up(); await page.waitForTimeout(500); const rotated = (await observe()).camera; assert.notDeepEqual(rotated, before); await page.mouse.wheel(0, -200); await page.waitForTimeout(400); assert.notDeepEqual((await observe()).camera, rotated); });
@@ -65,7 +65,7 @@ try {
   await page.waitForTimeout(300);
   await check('celular sem rolagem horizontal', async () => { assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)); await capture('mobile-diorama'); });
   await check('controles móveis abrem e alteram o ciclo', async () => { await page.getByRole('button', { name: 'Ajustar o rio', exact: true }).click(); assert.equal(await page.locator('#controls').isVisible(), true); await page.getByRole('button', { name: 'Cheia', exact: true }).click(); await input('flow', 80); assert.equal((await observe()).season, 'flood'); assert.equal((await observe()).flow, 80); await capture('mobile-controls'); await page.getByRole('button', { name: 'Ajustar o rio', exact: true }).click(); assert.equal(await page.locator('#controls').isVisible(), false); await capture('mobile-flood'); });
-  await view('Mapa');
+  await view('Planta');
   await capture('mobile-map');
   await view('Corte');
   await capture('mobile-section');

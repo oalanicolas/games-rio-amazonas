@@ -89,5 +89,42 @@ Protótipo e captura salvos em commits locais. Registro do protótipo em
 `workspace.json`. Remoto, push, deploy e conversão em submódulo publicado ficam
 para um pedido de publicação. Nenhuma sessão alheia ou branch existente foi alterada.
 
-A próxima decisão é experimentar a cena em movimento e julgar a direção.
+A próxima decisão era experimentar a cena em movimento e julgar a direção.
 
+## Extensão escolar — 2026-10-03
+
+Pedido de Alan: preparar para uso em escolas em Geografia. Público adotado: 6º/7º
+anos. `escola.html` é a entrada escolar; `ficha.html` é o material imprimível.
+
+- `npm run doctor`: 5 de 5 testes do modelo e build de produção aprovados.
+- `scripts/qa-escola.mjs`: 26 de 26 verificações escolares aprovadas.
+- `scripts/qa.mjs`: 26 de 26 verificações do diorama aprovadas.
+- Total: 52 de 52 verificações de navegador; zero erros nos percursos normais.
+- Browser verifica os bytes servidos contra `dist/`, por SHA-256. O recibo da
+  entrega final, com commit/URL, fica no output ignorado do hub.
+- Offline testado com `context.setOffline(true)`: reabertura de caderno, cena,
+  mapa, fotografia e ficha. O cache guarda todos os materiais de execução.
+- Pacote ZIP: 21 de 21 arquivos servidos pelo launcher Python sem npm e com
+  rede externa bloqueada; cena realmente renderizada e investigação pausada.
+- Comparação visual: `before-after-school.png`, mesma vista, etapa 0, corrente
+  55, sedimentos 60 e tamanho 1600×1000. Arte e enquadramento preservados; diferenças
+  intencionais: acesso ao caderno, Planta/Etapa e identificação dos índices do modelo.
+- Capturas de caderno, atividades, professor, registros, impressão e três tamanhos
+  emulados inspecionadas. Ampliação CSS de 200% e controles nativos por teclado
+  verificados. A prova de impressão cobre o estilo visual, não uma impressora física.
+
+Correções de verificação: o roteiro de QA tinha um seletor ambíguo entre dois
+links para a mesma investigação; foi delimitado à seção de atividades. A navegação
+das abas foi sincronizada com a mudança de hash. Não foram relaxadas asserções ou
+limites para obter aprovação.
+
+O modelo não representa tempo físico: “Ano” passou a “Etapa”. A planta do diorama
+não se confunde com o mapa oficial da ANA. As correspondências com EF06GE04,
+EF06GE09 e EF07GE11 são parciais e incluem complementações para o professor.
+Os registros guardam apenas configurações e índices nesta aba, com limpeza explícita.
+
+Mídias de QA arquivadas no Drive em `rio-amazonas-escolas-qa-20261003.zip`;
+recibo com contagem e hashes em `output/rio-amazonas-escolas/arquivo-receipt.json`.
+Sincronização remota depende do cliente Drive; não há confirmação de ID remoto.
+Material ainda sem aplicação com turma real, avaliação de aprendizagem ou aceite
+visual de Alan. Celular permanece emulado. Publicação externa não executada.

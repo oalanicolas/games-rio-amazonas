@@ -1,10 +1,13 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { LENGTH, WIDTH, SAMPLES, initialState, channelAt, bankAt, metrics, advance } from './model.js';
+import { prepareOffline } from './offline.js';
 
 const state = initialState();
 const $ = selector => document.querySelector(selector);
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' }); }
+catch (error) { $('#loading').innerHTML = 'A cena 3D não está disponível neste navegador. <a href="/escola.html">Continuar no caderno de Geografia</a>'; throw error; }
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(innerWidth, innerHeight);
 renderer.shadowMap.enabled = true;
@@ -441,6 +444,7 @@ $('#sound').addEventListener('click', async () => {
 });
 function reset() {
   Object.assign(state, initialState());
+  if (reducedMotion || ['margens', 'cheias'].includes(activity)) state.playing = false;
   for (const key of ['flow', 'sediment', 'year']) { $(`#${key}`).value = state[key]; rangeFill($(`#${key}`)); }
   for (const key of ['flow', 'sediment']) $(`#${key}-value`).textContent = `${state[key]}%`;
   document.querySelectorAll('[data-season]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.season === state.season)));
@@ -456,7 +460,7 @@ $('#about-close').addEventListener('click', () => $('#about').close());
 $('#about').addEventListener('click', event => { if (event.target === $('#about')) { const bounds = $('#about').getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) $('#about').close(); } });
 $('#controls-toggle').addEventListener('click', () => { const open = $('#controls').classList.toggle('open'); $('#controls-toggle').setAttribute('aria-expanded', String(open)); });
 document.addEventListener('keydown', event => {
-  if (event.target.matches('input,textarea,select') || $('#about').open) return;
+  if (event.target.closest('input,textarea,select,button,a') || document.querySelector('dialog[open]')) return;
   const key = event.key.toLowerCase();
   if (key === ' ') { event.preventDefault(); $('#play').click(); }
   if (key === 'v') { const views = ['diorama', 'map', 'section']; chooseView(views[(views.indexOf(state.view) + 1) % 3]); }
@@ -473,6 +477,37 @@ addEventListener('resize', () => {
 });
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (reducedMotion) { state.playing = false; updatePlay(); }
+const activity = new URLSearchParams(location.search).get('atividade');
+if (['margens', 'cheias'].includes(activity)) {
+  state.playing = false;
+  updatePlay();
+  $('#mission-open').hidden = false;
+  $('#mission-title').textContent = activity === 'margens' ? 'Para onde vai a margem?' : 'Quando o rio encontra a floresta';
+  $('#mission-instruction').textContent = activity === 'margens' ? 'Compare as etapas 0 e 240. Mantenha corrente 55, sedimentos 60 e transição. Desenhe as curvas e identifique erosão e deposição.' : 'Compare vazante e cheia na etapa 0, com corrente 55 e sedimentos 60. Qual área da paisagem a água alcança?';
+  const presets = activity === 'margens' ? [['Etapa 0', 0, 'normal'], ['Etapa 240', 240, 'normal']] : [['Comparar vazante', 0, 'dry'], ['Comparar cheia', 0, 'flood']];
+  for (const [label, year, season] of presets) {
+    const button = document.createElement('button'); button.textContent = label;
+    button.addEventListener('click', () => {
+      reset(); state.year = year; state.season = season; state.playing = false; updatePlay();
+      document.querySelectorAll('[data-season]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.season === season)));
+      chooseView('map'); dirty = true; $('#mission').close();
+    });
+    $('#mission-presets').append(button);
+  }
+  $('#mission-open').addEventListener('click', () => $('#mission').showModal());
+  $('#mission-close').addEventListener('click', () => $('#mission').close());
+  $('#record-observation').addEventListener('click', () => {
+    state.playing = false; updatePlay();
+    try {
+      const raw = JSON.parse(sessionStorage.getItem('atlas-amazonas-records') || '[]');
+      const records = Array.isArray(raw) ? raw.slice(-11) : [];
+      records.push({ activity, stage: Math.floor(state.year), season: state.season, flow: state.flow, sediment: state.sediment, ...metrics(state) });
+      sessionStorage.setItem('atlas-amazonas-records', JSON.stringify(records));
+      $('#record-feedback').textContent = 'Observação registrada nesta aba. Compare no caderno; fechar a aba encerra os registros.';
+    } catch { $('#record-feedback').textContent = 'O navegador não permitiu guardar o registro. Anote a etapa, o ciclo e a área alagada na ficha.'; }
+  });
+}
+prepareOffline();
 frameView('diorama', false);
 updateLandscape();
 $('#loading').hidden = true;
