@@ -29,8 +29,10 @@ Voltar para a mesma etapa com os mesmos controles deve recuperar a mesma paisage
 
 Three.js 0.183.2, Vite e JavaScript ES modules. `src/model.js` define estado,
 centro do canal, margens e métricas. `src/main.js` constrói a cena, liga controles e
-anima a corrente. `index.html` e `src/style.css` contêm a interface. Não há backend,
-conta, telemetria ou recurso remoto necessário em execução. Na versão escolar,
+anima a corrente. `laboratorio.html` e `src/style.css` contêm a interface. Não há backend,
+conta ou recurso remoto necessário ao conteúdo didático. No domínio público,
+GTM-TT2J9B4B mede acessos; respostas e registros nunca são transmitidos.
+Em localhost e no pacote escolar, serviços de estatísticas não carregam. Na versão escolar,
 registros anônimos de configurações ficam em sessionStorage; quiz fica em memória.
 O caderno e a ficha não importam Three.js e permitem leitura sem WebGL/JavaScript.
 Um service worker guarda a build inteira, com cache identificado pelo hash dos
@@ -63,7 +65,12 @@ de transporte. HUD compacto e evolução horizontal. A planta enquadra a paisage
 o corte usa câmera mais baixa para mostrar o solo. Sem modo visual simplificado.
 
 Reuso: fontes de `shared/studio-fonts`, som CC0 de `shared/sfx` e Three.js MIT.
-Não usar `shared/rabisco`: a experiência não pertence ao universo Rabisco.
+Extensão de 04/10/2026 autorizada por Alan: apresentação com skin Rabisco e
+publicação em geografia.rabisco.net. Reuso da marca, textura de papel e fonte
+Caveat de Universo Rabisco/Distrito; tinta #1018ad, amarelo #ffcf23 e papel
+#f6f3e6 do design system da família. Barlow permanece no texto didático.
+A cena e o modelo são preservados; `index.html` passa a abrir o caderno.
+Origem e hashes dos arquivos reutilizados em `public/marca/SOURCE.json`.
 Lacuna que justifica arte nova: não existe neste alvo uma paisagem amazônica aprovada.
 Terreno, plantas, água, placa e interface foram construídos para este protótipo.
 
@@ -101,8 +108,7 @@ Implementação própria do laboratório, modelo ilustrativo com controles relat
 nome Amazonas — um rio vivo, assets procedurais, execução local e fontes offline.
 Sem banco. Público 6º/7º anos, aulas em dupla ou por projetor, registros sem
 identidade e material imprimível; não há piloto com turma real ou validação docente.
-Trabalho fica local; criação de remoto, push e deploy
-exigem pedido de publicação. Nenhuma dessas escolhas equivale a aceite visual.
+Alan autorizou criação de remoto, push e deploy ao pedir geografia.rabisco.net. Nenhuma dessas escolhas equivale a aceite visual.
 
 ## QA e continuidade
 

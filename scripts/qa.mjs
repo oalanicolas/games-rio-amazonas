@@ -7,7 +7,7 @@ import { createHash } from 'node:crypto';
 const destination = new URL('../../../output/rio-amazonas-qa/', import.meta.url);
 await mkdir(destination, { recursive: true });
 const served = JSON.parse(await readFile(new URL('../../../output/serve/prototypes__rio-amazonas.json', import.meta.url), 'utf8'));
-const url = process.argv[2] || served.url;
+const url = new URL('laboratorio.html', process.argv[2] || served.url).href;
 const browser = await chromium.launch({ channel: 'chrome', headless: process.env.QA_HEADED !== '1', args: ['--use-angle=metal', '--ignore-gpu-blocklist'] });
 const context = await browser.newContext({ viewport: { width: 1600, height: 1000 }, deviceScaleFactor: 1 });
 const page = await context.newPage();

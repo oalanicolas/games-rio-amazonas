@@ -15,3 +15,10 @@
 - Vistas Diorama, Mapa e Corte; relógio reversível, pausa, velocidades, reinício,
   legendas, controles móveis e ambiente sonoro opcional.
 - Créditos, fontes conceituais e limites do modelo dentro da experiência.
+
+## 2026-10-04
+
+- Geografia Rabisco: marca original, papel pautado, títulos Caveat e ações com marca-texto.
+- Apresentação escolar na raiz; laboratório preservado em `/laboratorio.html`.
+- Destino público geografia.rabisco.net, metadados de compartilhamento e favicon da família.
+- GTM somente no domínio público; respostas e registros permanecem no navegador.

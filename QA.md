@@ -132,3 +132,13 @@ recibo com contagem e hashes em `output/rio-amazonas-escolas/arquivo-receipt.jso
 Sincronização remota depende do cliente Drive; não há confirmação de ID remoto.
 Material ainda sem aplicação com turma real, avaliação de aprendizagem ou aceite
 visual de Alan. Celular permanece emulado. Publicação externa não executada.
+# Geografia Rabisco — publicação de 04/10/2026
+
+Skin aplicada à apresentação e ao caderno; marca, papel e Caveat reutilizados.
+Comparação antes/depois em 1440 × 1000 e 390 × 844 no acervo desta rodada.
+A cena e o modelo mantêm geometria, materiais, câmeras e controles anteriores.
+Entrada pública escolar, navegação ao laboratório, canonical e imagem 1200 × 630
+ganham verificações próprias no QA. Metadados e hashes públicos são conferidos
+após o deploy da revisão no GitHub, por `gameops deploy`.
+GTM mede somente acessos no domínio público; pacote localhost sem telemetria.
+Não houve teste em dispositivo físico, turma real ou aceite artístico de Alan.

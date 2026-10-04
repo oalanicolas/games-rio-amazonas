@@ -7,6 +7,10 @@ O snapshot original fica em `swipe/river-bend`, fora deste módulo.
 - Direção: floresta de várzea, águas barrentas, diorama com solo exposto e controles didáticos.
 - Cânone: `game-design.md`. Escala product; gênero simulation; superfície Aprender.
 - Escola: 6º e 7º anos; caderno, plano, ficha e investigação. BNCC parcial, sem certificação.
+- Skin de apresentação Rabisco autorizada em 04/10/2026. Reutilizar marca, textura e Caveat de Universo Rabisco; manter a arte do laboratório.
+- Publicação autorizada em `geografia.rabisco.net`, Hostinger via `gameops deploy rio-amazonas`.
+- Entrada escolar em `/`; laboratório em `/laboratorio.html`. `/escola.html` conserva o acesso ao caderno.
+- Estatísticas GTM-TT2J9B4B somente no domínio público; não transmitir respostas ou registros.
 - Nunca apresentar as 300 etapas como anos reais ou a planta como cartografia oficial.
 - `npm run doctor`: testes do modelo e build de produção.
 - Servir da raiz do hub: `python3 framework/scripts/game.py serve prototypes/rio-amazonas`.
