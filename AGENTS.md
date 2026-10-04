@@ -10,6 +10,8 @@ O snapshot original fica em `swipe/river-bend`, fora deste módulo.
 - Skin de apresentação Rabisco autorizada em 04/10/2026. Reutilizar marca, textura e Caveat de Universo Rabisco; manter a arte do laboratório.
 - Publicação autorizada em `geografia.rabisco.net`, Hostinger via `gameops deploy rio-amazonas`.
 - Entrada escolar em `/`; laboratório em `/laboratorio.html`. `/escola.html` conserva o acesso ao caderno.
+- Caderno 02: `/terremotos.html`, ficha `/ficha-terremotos.html`, autorizado em 04/10/2026. Não importar cliente, arte ou código de Earthquake Tower, Ryan Sael; arquivo separado no Swipe.
+- Terremotos: modelo próprio de um oscilador elástico por torre, comparação de frequência/rigidez/amortecimento. Frequência não é magnitude; não prever danos, colapso, sismos ou segurança de edifícios. `window.__TERREMOTOS__` é a API de QA.
 - Estatísticas GTM-TT2J9B4B somente no domínio público; não transmitir respostas ou registros.
 - Nunca apresentar as 300 etapas como anos reais ou a planta como cartografia oficial.
 - `npm run doctor`: testes do modelo e build de produção.

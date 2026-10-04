@@ -146,3 +146,46 @@ Correção em `.htaccess` próprio: cabeçalhos de erro fora de `FilesMatch`, co
 condição de status. A configuração interna fica fora do cache offline. A regra
 é conferida pelo mesmo `gameops deploy`, sem alterar seus critérios.
 Não houve teste em dispositivo físico, turma real ou aceite artístico de Alan.
+
+# Caderno 02 — Terremotos, 04/10/2026
+
+- `npm run doctor`: 10 testes do modelo e build de produção passaram.
+- `gameops gates rio-amazonas --run`: build, test e doctor passaram.
+- `npm run qa`: 80 cenários de navegador passaram, 0 erros de JavaScript/rede
+  nos fluxos locais. Amazonas 26, caderno Amazonas 28, Terremotos 26.
+- Chrome headless, GPU `ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Ultra, Unspecified Version)`.
+- Ressonância: 20 s no relógio real encerram e pausam o ensaio; mudar só o ritmo
+  troca a torre dominante. Reforço eleva frequência; altura e amortecimento alteram
+  resposta. Testes conferem solução analítica, pausa, reset e extremos finitos.
+- Picos, registros da aba, saneamento de registros inválidos, cinco questões com
+  retomada, vistas, órbita, zoom cartográfico e impressão conferidos.
+- Ambas as aulas e fichas reabrem offline. Sem WebGL, modelo numérico permanece;
+  sem JavaScript, leitura, atividades escritas, plano e ficha permanecem.
+- Responsividade: 390 × 844, 844 × 390 e 1024 × 768, sem transbordamento;
+  ampliação 200% e preferência de movimento reduzido verificadas.
+- Swipe: 13 arquivos, 2330039 bytes, integridade conferida; duas falhas são
+  telemetria opcional. Espelho 200 com HTTPS externo bloqueado e 0 erros de script.
+- Catálogo: 101 referências, 12 coleções e 101 capas; `indice.py --check` passou.
+
+Comparação própria/referência: `referencia-rabisco.png`, duas telas 1600 × 1000.
+Diferenças intencionais: bancada escura → papel/tinta Rabisco; torres próprias;
+HUD inglês → atividades e controles em português; modelo de múltiplos graus de
+liberdade → dois osciladores ilustrativos; início em movimento → início pausado;
+gráficos de vibração → resposta teórica estacionária, declarada como tal.
+Não se reivindica paridade física ou pixel a pixel.
+Amazonas antes/depois: `amazonas-antes-depois.png`, duas telas 1440 × 1000.
+Apenas o menu das duas aulas desloca o hero para baixo; foto, identidade e cena
+Amazonas preservadas. Imagens e relatórios ficam no acervo de QA, fora do Git.
+
+Defeito encontrado no modelo: excitação harmônica abrupta provocava transiente
+artificial na comparação de picos. Corrigido com rampa e aceleração derivada;
+a exigência de troca da torre dominante não foi relaxada. Não há aplicação em
+turma real, certificação curricular, teste em aparelho físico ou aceite visual de Alan.
+
+Revisão estruturada Codex (`autoreview --mode local --engine codex --thinking high`):
+achado aceito, registros nulos podiam interromper a inicialização antes da cena.
+Guardas de objeto não nulo aplicadas às duas leituras de registros; casos nomeados
+do navegador passam a inserir registros nulos e torres nulas antes de recarregar.
+Reexecução dos dois cadernos: 28 e 26 cenários passaram, sem erros. Revisão final
+estruturada encerrada com código 0, sem achados acionáveis; recibos em
+`output/geografia-terremotos-qa/autoreview-final.json` e `autoreview-final.txt`.

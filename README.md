@@ -1,9 +1,15 @@
-# Geografia Rabisco — Amazonas
+# Geografia Rabisco — Amazonas e Terremotos
 
 Material de apoio para aulas de Geografia de 6º e 7º anos: caderno de leitura,
 mapa oficial da ANA, fotografia NASA, duas investigações guiadas, cinco questões
 com explicação, ficha imprimível e plano de 50 minutos. Inclui o laboratório 3D
 da paisagem amazônica. Relação parcial com a BNCC, sem certificação curricular.
+
+Segundo caderno: **Terremotos**, em `/terremotos.html`. Mapa USGS das placas,
+laboratório 3D de duas torres, dois experimentos, cinco questões com feedback,
+ficha `/ficha-terremotos.html` e plano de 50 minutos. Inclui sismos no Brasil,
+magnitude versus intensidade, ressonância, ocupação do território e vulnerabilidade.
+BNCC: apoio parcial a EF06GE11; complementações no plano. Não há piloto com turma real.
 
 ## Abrir
 
@@ -74,3 +80,20 @@ O modelo é didático e geométrico, sem calibração de campo ou trecho geográ
 exato. Os números são relativos. Não usar para prever cheias ou erosão real.
 Referência de experiência: [River Bend, de Ryan Sael](https://sael.net/river-bend/),
 arquivado separadamente em `swipe/river-bend`; código e arte deste protótipo são próprios.
+
+## Laboratório de terremotos
+
+Inicia pausado. “Ritmo da torre A/B” escolhe a frequência natural ilustrativa e
+inicia um ensaio de 20 segundos. Registre ao terminar. Altere andares, reforços,
+frequência e amortecimento uma variável de cada vez; uma alteração reinicia e pausa
+o ensaio. Há vibração composta e impulso sintéticos, duas vistas e órbita.
+Últimos 12 registros ficam no `sessionStorage` da aba; sem WebGL, controles,
+modelo numérico, picos textuais, leitura e ficha permanecem disponíveis.
+
+Um oscilador por torre, elástico, sem danos. Hz não é magnitude. Pico é deslocamento
+relativo dividido pela amplitude da mesa; balanço visual ampliado 3 vezes. Nenhum
+resultado certifica uma construção ou prevê terremotos. Modelo e arte independentes,
+inspirados em [Earthquake Tower, Ryan Sael](https://sael.net/earthquake-tower/),
+arquivado em `swipe/earthquake-tower`, todos os direitos do original preservados.
+Mapa integral USGS, domínio público, créditos/hashes em `public/terremotos/SOURCE.json`.
+O pacote local e o cache offline incluem os dois cadernos e as duas fichas.

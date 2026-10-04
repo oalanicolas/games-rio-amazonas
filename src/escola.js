@@ -13,7 +13,13 @@ zoom.addEventListener('input', () => {
   document.querySelector('#official-map').style.width = `${Number(zoom.value) * 100}%`;
   document.querySelector('#map-zoom-value').textContent = `${zoom.value}×`;
 });
-const questions = [
+const questions = document.body.dataset.lesson === 'terremotos' ? [
+  ['Mudar a frequência da mesa é o mesmo que mudar a magnitude de um terremoto?', ['Sim: hertz mede magnitude.', 'Não: frequência é o ritmo; magnitude caracteriza o evento.', 'Sim: uma torre alta aumenta a magnitude.'], 1, 'Frequência indica ciclos por segundo. Magnitude caracteriza o tamanho de um sismo; intensidade descreve efeitos e tremor em um local.'],
+  ['Por que uma torre pode oscilar mais em certo ritmo?', ['A vibração pode se aproximar de sua frequência natural.', 'Todo prédio alto sempre cai.', 'A cor da fachada amplifica o sismo.'], 0, 'Na ressonância, a excitação se aproxima da frequência natural. Altura, rigidez e amortecimento alteram a resposta; segurança real depende de muitos outros fatores.'],
+  ['O Brasil pode ter terremotos?', ['Não, porque está longe de muitos limites de placas.', 'Só se uma placa aparecer de repente.', 'Sim, também ocorrem sismos no interior das placas.'], 2, 'Muitos sismos ocorrem perto de limites, mas falhas no interior das placas também podem se movimentar. O Brasil não é livre de sismos.'],
+  ['Um mesmo terremoto provoca o mesmo efeito em todos os lugares?', ['Sim, sempre.', 'Não: distância, solo e construções influenciam os efeitos.', 'Só a frequência decide todos os danos.'], 1, 'Magnitude se refere ao evento; intensidade varia de lugar para lugar. Exposição e vulnerabilidade também participam do risco urbano.'],
+  ['O laboratório permite concluir que…', ['uma torre real está certificada como segura.', 'a próxima data de um terremoto está prevista.', 'podemos comparar respostas do modelo, reconhecendo seus limites.'], 2, 'O modelo é elástico, simplificado e sem dados de uma cidade. Não calcula ruptura, danos, magnitude nem segurança de edifícios.']
+] : [
   ['Em um meandro, onde tende a ocorrer maior erosão?', ['Na margem externa da curva.', 'Na margem interna da curva.', 'Sempre nas duas margens por igual.'], 0, 'A corrente tende a retirar material na margem externa; a interna favorece a deposição. São tendências, não uma regra para todo ponto do rio.'],
   ['Ao comparar cheia e vazante na mesma etapa, o que investigamos?', ['A idade da floresta.', 'A mudança no nível da água e na área inundada.', 'A distância real de migração em 300 anos.'], 1, 'A comparação dos ciclos mostra a conexão entre canal e planície inundável. As etapas do modelo não equivalem a anos.'],
   ['O mapa da ANA exibido neste caderno representa…', ['o estado do Amazonas inteiro e apenas ele.', 'a bacia internacional completa.', 'a Região Hidrográfica Amazônica brasileira.'], 2, 'O mapa mostra uma divisão hidrográfica brasileira que inclui áreas de sete estados; a bacia internacional ultrapassa o Brasil.'],
@@ -39,7 +45,7 @@ const recordsElement = document.querySelector('#records');
 function renderRecords() {
   let records = [];
   try { records = JSON.parse(sessionStorage.getItem('atlas-amazonas-records') || '[]'); } catch { records = []; }
-  records = Array.isArray(records) ? records.filter(r => ['margens', 'cheias'].includes(r.activity) && ['dry', 'normal', 'flood'].includes(r.season) && ['stage', 'flow', 'sediment', 'flooded', 'sinuosity'].every(k => Number.isFinite(r[k]))).slice(-12) : [];
+  records = Array.isArray(records) ? records.filter(r => r && typeof r === 'object' && ['margens', 'cheias'].includes(r.activity) && ['dry', 'normal', 'flood'].includes(r.season) && ['stage', 'flow', 'sediment', 'flooded', 'sinuosity'].every(k => Number.isFinite(r[k]))).slice(-12) : [];
   recordsElement.replaceChildren();
   if (!records.length) { recordsElement.textContent = 'Nenhum registro ainda. Abra um experimento e use “Registrar observação”.'; return; }
   const wrap = document.createElement('div'); wrap.className = 'records-wrap'; const table = document.createElement('table'); table.className = 'records-table';
@@ -49,7 +55,9 @@ function renderRecords() {
   records.forEach(r => { const row = body.insertRow(); [r.activity === 'margens' ? 'Margens' : 'Cheias', r.stage, names[r.season], r.flow, r.sediment, `${r.flooded}%`, r.sinuosity.toFixed(2).replace('.', ',')].forEach(value => { row.insertCell().textContent = value; }); });
   wrap.append(table); recordsElement.append(wrap);
 }
-renderRecords();
-document.querySelector('#clear-records').addEventListener('click', () => { try { sessionStorage.removeItem('atlas-amazonas-records'); } catch {} renderRecords(); });
+if (recordsElement) {
+  renderRecords();
+  document.querySelector('#clear-records').addEventListener('click', () => { try { sessionStorage.removeItem('atlas-amazonas-records'); } catch {} renderRecords(); });
+}
 document.querySelector('#print-guide').addEventListener('click', () => { document.querySelectorAll('#professor details').forEach(d => { d.open = true; }); window.print(); });
 prepareOffline(document.querySelector('#offline-status'));

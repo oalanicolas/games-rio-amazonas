@@ -23,3 +23,7 @@
 - Destino público geografia.rabisco.net, metadados de compartilhamento e favicon da família.
 - GTM somente no domínio público; respostas e registros permanecem no navegador.
 - Regras próprias da Hostinger: respostas 403 não entram em cache; configuração interna não integra os materiais offline.
+- Caderno 02 — Terremotos: placas, foco/epicentro, sismos brasileiros, magnitude/intensidade e risco urbano; mapa USGS integral com créditos.
+- Laboratório próprio de duas torres Rabisco: ritmo, altura, reforços, amortecimento, picos comparáveis, vista frontal/perspectiva e registros locais.
+- Dois experimentos, cinco questões formativas, plano de 50 min com EF06GE11 parcial e ficha imprimível; cache e pacote local incluem as duas aulas.
+- Comparação preserva a aula Amazonas. Simulação elástica ilustrativa, sem previsão de danos ou certificação de construções.

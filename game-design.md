@@ -112,6 +112,45 @@ Alan autorizou criação de remoto, push e deploy ao pedir geografia.rabisco.net
 
 ## QA e continuidade
 
+### Extensão: Terremotos — 04/10/2026
+
+Pedido de Alan: arquivar Earthquake Tower e acrescentar aula de Geografia.
+Reuso: marca, papel, tipografia e componentes do caderno Rabisco, Three.js e
+OrbitControls já instalados, mecanismo offline e perguntas formativas locais.
+Lacuna de arte: não havia torres ou mesa vibratória neste módulo; arquitetura,
+janelas, reforços, plantas, molas, mesa e contornos foram feitos proceduralmente.
+Não são cópias dos assets da referência. A comparação permite duas respostas sob
+a mesma excitação; a referência permanece creditada e separada em Swipe.
+
+Modelo próprio, um grau de liberdade por torre, deslocamento relativo x:
+`x'' + 2ζω x' + ω²x = -a_mesa(t)`. Frequência natural ilustrativa:
+`10 / andares × sqrt(reforço ? 3 : 1)` Hz. Andares 2–14, amortecimento 2–25%,
+mesa 0,3–9 Hz. Amplitude abstrata fixa 0,08; RK4 a 240 Hz, duração 20 s.
+Ritmo constante tem rampa de entrada de 2 s, com derivadas incluídas na aceleração;
+evita a velocidade inicial artificial da excitação abrupta. A falha inicial no
+teste de troca de torre dominante foi corrigida pelo modelo, sem relaxar a asserção.
+Composta: soma de 0,65/1,4/2,8/4,4 Hz com pesos 0,4/0,3/0,2/0,1.
+Impulso: pulso suave de deslocamento `0,08 sin²(πt/0,4)` entre 0 e 0,4 s,
+sem deslocamento posterior. Não são registros sísmicos. Gráfico mostra resposta
+teórica estacionária; picos do ensaio incluem transiente. Deformação por altura
+é uma escolha visual, não análise por andar; escala visual ×3 explicitada.
+Não reivindica paridade com o modelo de vários graus de liberdade da referência.
+
+6º/7º anos, 50 min, localizar placas e Brasil, foco/epicentro, magnitude/intensidade,
+comparar ritmos e rigidez, discutir ocupação/vulnerabilidade e limites de modelos.
+EF06GE11 parcial, sem cobertura completa da habilidade. Cinco questões permitem
+retomada; ficha com hipótese, tabela de três ensaios e interpretação territorial.
+Sem WebGL há modelo numérico; sem JavaScript, leitura, atividades escritas e ficha.
+Sem contas ou envio de respostas, registros só da aba. Sem certificação curricular,
+piloto docente ou aceite visual de Alan.
+
+Fontes primárias: USGS, ciência de terremotos, magnitude/intensidade e modelos
+didáticos (links no caderno); mapa de placas This Dynamic Planet, domínio público;
+IAG-USP, relatório de sismo no Maranhão de 2017; MEC, BNCC, p. impressa 385;
+UNDRR, terminologia de risco e vulnerabilidade. Créditos do mapa em
+`public/terremotos/SOURCE.json`; imagens de divulgação saem do próprio renderizador.
+
+
 `npm run doctor` testa regras que diferenciam os estados e gera a build.
 `npm run qa` verifica entrada, relógio, pausa, retrocesso, ciclos, controles,
 vistas, órbita, áudio real, ajuda, reinício, teclado, responsividade e movimento
