@@ -123,7 +123,11 @@ não se confunde com o mapa oficial da ANA. As correspondências com EF06GE04,
 EF06GE09 e EF07GE11 são parciais e incluem complementações para o professor.
 Os registros guardam apenas configurações e índices nesta aba, com limpeza explícita.
 
-Mídias de QA arquivadas no Drive em `rio-amazonas-escolas-qa-20261003.zip`;
+Na conferência do pacote Python, apareceu uma requisição 404 de favicon ausente.
+O ícone embutido foi acrescentado ao caderno e à ficha; a checagem de distribuição
+passou a rejeitar respostas HTTP de erro e erros de console, além de falhas de script.
+
+Mídias de QA arquivadas no Drive em `rio-amazonas-escolas-qa-20261003-final.zip`;
 recibo com contagem e hashes em `output/rio-amazonas-escolas/arquivo-receipt.json`.
 Sincronização remota depende do cliente Drive; não há confirmação de ID remoto.
 Material ainda sem aplicação com turma real, avaliação de aprendizagem ou aceite
